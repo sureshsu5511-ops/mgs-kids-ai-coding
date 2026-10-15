@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MGS FUTURE AI GENIUS 2030 Kids Edition 1 · MGS Kids International AI & Coding Academy</title>
+<meta name="description" content="MGS Kids International AI & Coding Academy - 45-Day Digital Future Course for Class 6th to 12th">
+<style>
+:root{--bg:#050816;--card:#0d1330;--line:#222b55;--tx:#eaf0ff;--mut:#9aa7d6;--a:#6c5cff;--b:#00d4ff;--g:#25d366}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--tx);line-height:1.55}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1150px;margin:auto;padding:0 20px}
+header{position:sticky;top:0;z-index:20;background:rgba(5,8,22,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;height:66px}
+.logo{font-weight:800;font-size:1.15rem;letter-spacing:.5px}.logo span{color:var(--b)}
+.logo small{display:block;font-size:.62rem;font-weight:500;color:var(--mut);letter-spacing:0}
+.nbtn{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;padding:11px 20px;border-radius:999px;font-weight:700;font-size:.92rem;border:1px solid var(--line);cursor:pointer;transition:.2s;color:var(--tx);background:transparent}
+.btn:hover{transform:translateY(-2px)}
+.btn.p{background:linear-gradient(90deg,var(--a),var(--b));border:0;color:#fff}
+.btn.o{border-color:var(--b);color:var(--b)}
+.btn.s{background:#fff;color:#111;border:0}
+/* 3D hero */
+.hero{padding:16px 0 10px}
+.card3d{position:relative;overflow:hidden;background:#000;border:1px solid var(--line);border-radius:24px;height:calc(100vh - 100px);min-height:520px;max-height:720px;display:flex}
+.spot{position:absolute;inset:0;pointer-events:none;background:radial-gradient(420px circle at var(--x,50%) var(--y,30%),rgba(108,92,255,.35),transparent 70%)}
+.hl{position:relative;z-index:2;flex:1;padding:36px 44px;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.hr{position:relative;flex:1;min-height:420px}
+#spline{position:absolute;inset:0;width:100%;height:100%}
+.org{font-size:.95rem;font-weight:700;color:var(--b);letter-spacing:.3px}
+.badge{align-self:flex-start;padding:6px 14px;border:1px solid var(--line);border-radius:999px;font-size:.8rem;color:var(--mut);background:rgba(255,255,255,.04)}
+h1{font-size:clamp(1.9rem,4vw,3.2rem);line-height:1.1;background:linear-gradient(180deg,#fff,#8fa0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hl p{color:var(--mut);max-width:520px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+.robobtn{position:absolute;z-index:3;left:50%;bottom:26px;transform:translateX(-50%);white-space:nowrap;font-size:1.02rem;padding:14px 26px;box-shadow:0 0 0 0 rgba(108,92,255,.7);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 18px rgba(108,92,255,0)}100%{box-shadow:0 0 0 0 rgba(108,92,255,0)}}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;text-align:center}
+.stat b{display:block;font-size:2rem;background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{color:var(--mut);font-size:.85rem}
+section{padding:60px 0}
+.eyebrow{color:var(--b);font-weight:700;font-size:.8rem;letter-spacing:2px;text-transform:uppercase}
+h2{font-size:clamp(1.6rem,3.4vw,2.4rem);margin:6px 0 10px}
+.sub{color:var(--mut);max-width:680px;margin-bottom:28px}
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.c{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.c h3{font-size:1.05rem;margin-bottom:6px}.c p,.c li{color:var(--mut);font-size:.92rem}
+.ph{display:flex;gap:14px}
+.num{flex:none;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-weight:800;background:linear-gradient(135deg,var(--a),var(--b))}
+.days{display:inline-block;margin-top:8px;font-size:.78rem;font-weight:700;color:var(--b)}
+.lv{border-top:3px solid var(--a)}.lv:nth-child(2){border-color:var(--b)}.lv:nth-child(3){border-color:#ff7ab6}
+.bar{display:flex;height:46px;border-radius:12px;overflow:hidden;font-weight:700;font-size:.85rem;margin-top:12px}
+.bar div{display:grid;place-items:center;color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.chip{padding:8px 14px;border:1px solid var(--line);border-radius:999px;font-size:.85rem;color:var(--mut)}
+/* schools */
+.sch{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+form{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;display:grid;gap:12px}
+input,select{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:#070b22;color:var(--tx);font:inherit}
+label{font-size:.82rem;color:var(--mut)}
+ul.t{list-style:none;padding:0;display:grid;gap:10px}ul.t li::before{content:"✔ ";color:var(--b)}
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--mut);font-size:.9rem}
+.fl{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px}
+.wa{position:fixed;right:18px;bottom:18px;z-index:30;background:var(--g);color:#fff;padding:13px 18px;border-radius:999px;font-weight:700;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+@media(max-width:860px){.card3d{flex-direction:column;height:auto;max-height:none}.hl{padding:28px}.hr{min-height:320px}.g3,.g4,.sch{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.nbtn .btn:not(.p):not(.keep){display:none}}
+
+/* 3D animation style */
+.grid,.stats{perspective:1000px}
+.c,.stat{transform-style:preserve-3d;transition:transform .15s ease-out,box-shadow .3s,border-color .3s;will-change:transform}
+.c:hover,.stat:hover{border-color:var(--b);box-shadow:0 20px 44px rgba(108,92,255,.4)}
+.c>*{transform:translateZ(18px)}
+.num{transition:transform .7s}.c:hover .num{transform:translateZ(34px) rotateY(360deg)}
+.stat b{animation:fl 3s ease-in-out infinite}.stat:nth-child(2) b{animation-delay:.4s}.stat:nth-child(3) b{animation-delay:.8s}.stat:nth-child(4) b{animation-delay:1.2s}
+@keyframes fl{50%{transform:translateY(-7px) translateZ(20px)}}
+.rv{opacity:0;transform:perspective(900px) rotateX(-30deg) translateY(50px) scale(.94);transition:opacity .7s,transform .9s cubic-bezier(.2,.8,.2,1)!important}
+.rv.in{opacity:1;transform:none}
+.chip{transition:transform .2s,border-color .2s,color .2s}.chip:hover{transform:translateY(-5px) rotate(-2deg);border-color:var(--b);color:#fff}
+.btn:not(.robobtn){box-shadow:0 5px 0 rgba(0,0,0,.45)}.btn.p:not(.robobtn){box-shadow:0 5px 0 #3b2fb3}
+.btn:not(.robobtn):active{transform:translateY(4px);box-shadow:0 1px 0 rgba(0,0,0,.45)}
+.robobtn:active{transform:translateX(-50%) scale(.95)}
+#snd{position:fixed;left:18px;bottom:18px;z-index:30;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:#fff;font-size:1.2rem;cursor:pointer}
+@media(prefers-reduced-motion:reduce){.stat b{animation:none}.c:hover .num{transform:none}}
+
+#cert .cw{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+#cert img{width:100%;border-radius:12px;border:1px solid var(--line);cursor:zoom-in;background:#fff;display:block}
+.fact{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.92rem}.fact span{color:var(--mut)}.fact b{text-align:right}
+#lb{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}#lb.on{display:flex}#lb img{max-width:100%;max-height:100%;border-radius:8px;background:#fff}
+@media(max-width:860px){#cert .cw{grid-template-columns:1fr}}
+.edn{font-weight:900;font-size:clamp(1.05rem,2.4vw,1.6rem);letter-spacing:1px;color:#fff;text-shadow:0 0 18px rgba(0,212,255,.55);animation:glow 2.4s ease-in-out infinite}
+.e3w{perspective:600px;display:inline-block;margin-top:8px}
+.e3d{display:inline-block;position:relative;overflow:hidden;padding:6px 20px;border-radius:12px;font-weight:900;font-size:.9em;letter-spacing:2.5px;color:#fff;background:linear-gradient(135deg,#ff9a1f,#ff3d81 55%,#7c4dff);transform-style:preserve-3d;animation:swing 4s ease-in-out infinite;box-shadow:0 6px 0 #7a1c47,0 16px 26px rgba(255,61,129,.5)}
+.e3d::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.65),transparent);transform:skewX(-20deg);animation:shine 2.8s infinite}
+@keyframes swing{0%,100%{transform:rotateY(-24deg) rotateX(8deg)}50%{transform:rotateY(24deg) rotateX(-8deg)}}
+@keyframes shine{to{left:140%}}
+@media(prefers-reduced-motion:reduce){.e3d,.e3d::after{animation:none}}
+@keyframes glow{50%{text-shadow:0 0 30px rgba(108,92,255,.9)}}
+.cls{display:inline-block;padding:2px 14px;border-radius:999px;font-weight:900;color:#04210f;background:linear-gradient(135deg,#3dffb0,#00d4ff);box-shadow:0 4px 0 #0a7a5a,0 8px 16px rgba(0,255,170,.3);transform:perspective(400px) rotateX(0);animation:flipx 3.6s ease-in-out infinite}
+@keyframes flipx{0%,72%,100%{transform:perspective(400px) rotateX(0)}86%{transform:perspective(400px) rotateX(360deg)}}
+@media(prefers-reduced-motion:reduce){.cls{animation:none}}
+.card3d{--tx:#eaf0ff;--mut:#9aa7d6;--line:#222b55;--b:#00d4ff}
+.pj ul.t li{font-size:.9rem;color:var(--mut)}
+.lg{display:flex;align-items:center;gap:12px}
+.nav{height:auto;min-height:66px;padding:8px 0}.nbtn{justify-content:flex-end}.nbtn .btn{padding:8px 13px;font-size:.82rem}
+#students .sch{align-items:start}.chk{display:flex;gap:8px;align-items:flex-start;font-size:.8rem;color:var(--mut)}.chk input{width:auto;margin-top:3px}
+.lgimg{width:42px;height:42px;border-radius:12px;object-fit:cover;box-shadow:0 3px 0 rgba(0,0,0,.35)}
+.logo{display:flex;align-items:center;gap:10px}.logo .lt{color:inherit}
+.mascot{perspective:900px;text-align:center}
+.mascot img{width:100%;max-width:430px;border-radius:26px;box-shadow:0 22px 50px rgba(108,92,255,.45);animation:mfl 5s ease-in-out infinite}
+@keyframes mfl{0%,100%{transform:rotateY(-10deg) rotateX(4deg) translateY(0)}50%{transform:rotateY(10deg) rotateX(-4deg) translateY(-12px)}}
+.toys{display:flex;gap:18px;flex-wrap:wrap;perspective:600px;margin-top:6px}
+.toy{width:78px;filter:drop-shadow(0 12px 8px rgba(0,0,0,.45));animation:bob 3s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotateY(-18deg)}50%{transform:translateY(-14px) rotateY(18deg)}}
+@media(prefers-reduced-motion:reduce){.mascot img,.toy{animation:none}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap nav">
+  <div class="lg"><a href="#" class="logo"><img class="lgimg" src="mgs-kids-logo.jpg" alt="MGS Kids logo"><span class="lt">MGS <span>KIDS</span><small>International AI &amp; Coding Academy</small></span></a></div>
+  <div class="nbtn">
+    <a class="btn o" href="#courses">Courses</a>
+    <a class="btn o" href="#schools">Schools Register</a>
+    <a class="btn o keep" href="#students">Student Register</a>
+    <a class="btn o" href="#partners">Our Partners</a>
+    <a class="btn o" href="school.html">School Login</a>
+    <a class="btn p" id="demoNav" href="#" target="_blank" rel="noopener">Book a Free Demo Class</a>
+  </div>
+</div></header>
+
+<main>
+<div class="wrap hero">
+  <div class="card3d" id="card">
+    <div class="spot"></div>
+    <div class="hl">
+      <div class="org">MGS Kids International AI &amp; Coding Academy</div>
+      <a class="badge" href="#cert">🏢 Registered company since 2016 · View certificate</a>
+      <h1>Welcome to the Digital Future</h1>
+      <div class="edn">MGS FUTURE AI GENIUS <br><span class="e3w"><span class="e3d">2030 KIDS EDITION 1</span></span></div>
+      <p>A 45-day, project-first journey for <span class="cls">Class 6th to 12th</span>: computers, coding, AI, business and a live project pitch. Every student ends with a live portfolio, real users and a pitch.</p>
+      <div class="cta">
+        <a class="btn p" id="demoHero" href="#" target="_blank" rel="noopener">Book a Free Demo Class</a>
+        <a class="btn s" href="#courses">Courses</a>
+        <a class="btn o" href="#schools">Schools Register</a>
+      </div>
+    </div>
+    <div class="hr"><canvas id="spline"></canvas><a class="btn p robobtn" id="demoRobo" href="#" target="_blank" rel="noopener">🎓 Book a Free Demo Class</a></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b>45</b><span>Days of learning</span></div>
+    <div class="stat"><b>7</b><span>Phases</span></div>
+    <div class="stat"><b>6th–12th</b><span>One single book</span></div>
+    <div class="stat"><b>6+</b><span>Real-Time Projects · FREE</span></div>
+  </div>
+</div>
+
+<section id="meet" style="padding:30px 0 10px"><div class="wrap"><div class="mascot"><img src="mgs-kids-logo.jpg" alt="MGS Kids International AI and Coding Academy: kids and a friendly robot"></div></div></section>
+
+<section id="courses"><div class="wrap">
+  <div class="eyebrow">Courses</div>
+  <h2>45-Day Digital Future Course · MGS FUTURE AI GENIUS 2030 KIDS EDITION 1</h2>
+  <p class="sub">A complete path from "What is a computer?" to a live project pitch. Each lesson follows a simple rhythm: Hook, Explain, Do, Share and Reflect.</p>
+
+  <div class="grid g3">
+    <div class="c ph"><div class="num">1</div><div><h3>Computer Basics</h3><p>What is a computer, CPU/RAM/storage, files and folders, typing, documents, spreadsheets, slides and storytelling.</p><span class="days">Days 1–7</span></div></div>
+    <div class="c ph"><div class="num">2</div><div><h3>Internet, Data &amp; Security</h3><p>Binary, browser and search skills, networks, IP address and cloud, data privacy, passwords and scams.</p><span class="days">Days 8–12</span></div></div>
+    <div class="c ph"><div class="num">3</div><div><h3>Coding &amp; Software</h3><p>Algorithms, logic, variables, conditions, loops, lists, functions, HTML, CSS, JavaScript, debugging and a mini project studio.</p><span class="days">Days 13–24</span></div></div>
+    <div class="c ph"><div class="num">4</div><div><h3>Real-time Software &amp; Apps</h3><p>Types of software, frontend/backend/database, APIs, no-code apps, UI/UX, and launching an app.</p><span class="days">Days 25–30</span></div></div>
+    <div class="c ph"><div class="num">5</div><div><h3>Artificial Intelligence</h3><p>What AI is, machine learning, image model with Teachable Machine, bias and fairness, generative AI, AI ethics and a mini AI project.</p><span class="days">Days 31–36</span></div></div>
+    <div class="c ph"><div class="num">6</div><div><h3>Marketing, Business &amp; Earnings</h3><p>Idea to profit, SEO, online ads, social media and personal brand, how creators earn, e-commerce and UPI.</p><span class="days">Days 37–42</span></div></div>
+  </div>
+  <div class="grid" style="margin-top:16px"><div class="c ph"><div class="num">7</div><div><h3>Emerging Tech &amp; Capstone</h3><p>IoT, robots, AR/VR and blockchain, then Capstone Build Day and Pitch Day with graduation certificate.</p><span class="days">Days 43–45</span></div></div></div>
+
+  <h2 style="margin-top:50px">One Single Book · <span class="cls">Class 6th to 12th</span></h2>
+  <div class="grid"><div class="c lv" style="padding:30px;text-align:center"><div class="eyebrow">Course Name</div><h3 style="font-size:2rem;margin:8px 0">MGS FUTURE AI GENIUS</h3><div style="margin:2px 0 10px"><span class="e3w"><span class="e3d">2030 KIDS EDITION 1</span></span></div><p>45-Day Digital Future Course · MGS FUTURE AI GENIUS 2030 KIDS EDITION 1<br>One book for every student from <span class="cls">Class 6th to 12th</span>.</p></div></div>
+
+  <h2 style="margin-top:50px">How students are assessed</h2>
+  <div class="bar"><div style="width:40%;background:#6c5cff">Daily activity 40%</div><div style="width:20%;background:#0aa5d6">Weekly quiz 20%</div><div style="width:40%;background:#d94a8c">Final project 40%</div></div>
+  <div class="chips">
+    <span class="chip">7 weekly quizzes</span><span class="chip">20-mark Final Course Test</span><span class="chip">Capstone rubric on Days 44–45</span><span class="chip">Graduation certificate</span><span class="chip">FUTURE AI GENIUS · 2030 Kids Edition 1</span>
+  </div>
+
+  <h2 style="margin-top:50px">Built on global standards</h2>
+  <p class="sub">Aligned with CSTA K-12 Computer Science Standards, AI4K12 Five Big Ideas and ISTE Standards for Students, with a CBSE alignment map for Class 3 to 12. MGS is a supplementary course and does not replace the school timetable.</p>
+  <div class="chips"><span class="chip">🔐 Parent consent before any online account</span><span class="chip">🤖 Supervised, responsible AI</span><span class="chip">👀 Healthy screen habits</span></div>
+  <div class="cta" style="margin-top:26px"><a class="btn p demoLink" href="#" target="_blank" rel="noopener">Book a Free Demo Class</a><a class="btn o" href="#students">Student Register</a><a class="btn o" href="#projects">6+ Real-Time Projects</a></div>
+</div></section>
+
+<section id="projects" style="background:#080d26"><div class="wrap">
+  <div class="eyebrow">Real-Time Projects</div>
+  <h2>6+ Real-Time Projects · <span class="cls">FREE</span></h2>
+  <p class="sub">Students don't just learn. They build real things for real people: chatbots, voice agents, websites, apps, e-commerce and free marketing. Every project is tested with 3 to 5 real users, and their feedback becomes proof for the Founder Portfolio.</p>
+  <div class="grid g3"><div class="c pj" style="border-top:4px solid #7c3aed"><h3>🤖 Chatbots</h3><ul class="t"><li>Farmer Help Chatbot (Telugu + English)</li><li>Exam Doubt Bot (Maths / Science)</li><li>School Admission Helper Bot</li><li>Village Health Awareness Bot</li><li>MGS Academy Assistant Bot</li></ul></div><div class="c pj" style="border-top:4px solid #db2777"><h3>🎙️ AI Voice Agents</h3><ul class="t"><li>Telugu Voice Quiz Master</li><li>Kirana Shop Voice Helper</li><li>Bus Timing Voice Bot</li><li>Farmer Weather + Crop Tips Voice Agent</li><li>Appointment Voice Agent (demo)</li></ul></div><div class="c pj" style="border-top:4px solid #2563eb"><h3>🌐 Websites</h3><ul class="t"><li>My Village Page</li><li>Local Shop Website</li><li>SHG Products Store Page + WhatsApp order button</li><li>School Event Registration Site</li><li>MGS Student Portfolio Page (QR)</li></ul></div><div class="c pj" style="border-top:4px solid #ea580c"><h3>📱 Apps (no-code)</h3><ul class="t"><li>Bus Timing Helper</li><li>Kirana Stock Tracker App</li><li>Farmer Price Alert App</li><li>School Attendance + Homework App</li><li>Study Planner App</li></ul></div><div class="c pj" style="border-top:4px solid #16a34a"><h3>🛒 E-commerce</h3><ul class="t"><li>Product Listing Pack</li><li>Marketplace Fee Calculator</li><li>Meesho vs Flipkart vs Amazon Report</li><li>Honest Product Photography Kit</li><li>Return and Review Analyzer</li></ul></div><div class="c pj" style="border-top:4px solid #0d9488"><h3>📣 Free Marketing</h3><ul class="t"><li>Google Business Profile for a Local Shop</li><li>WhatsApp Business Catalog</li><li>30-Day Instagram / YouTube Shorts Plan</li><li>Two Posters, One Winner (A/B test)</li><li>Local Poster + QR Campaign</li></ul></div></div>
+  <h2 style="margin-top:44px">Day 44–45 Capstone</h2>
+  <div class="grid g3">
+    <div class="c"><h3>🏡 My Village Product Brand</h3><p>Website + WhatsApp catalog + listing pack + marketing plan.</p></div>
+    <div class="c"><h3>🌾 AI Helper for Farmers</h3><p>Chatbot + voice agent + app screen.</p></div>
+    <div class="c"><h3>🏪 Smart Kirana</h3><p>Stock app + bill calculator + voice helper + Google Business Profile.</p></div>
+  </div>
+  <div class="grid g3" style="margin-top:16px">
+    <div class="c"><h3>🏆 Annual Exams Every January</h3><p>Global participation. Prizes: Rs 50,000 / Rs 25,000 / Rs 10,000.</p></div>
+    <div class="c"><h3>🔐 Safe by design</h3><p>Parents or adults own seller, ad and business accounts. Students prepare the work. No real money is spent by students, and parent consent comes before any voice recording.</p></div>
+    <div class="c"><h3>🎓 Founder Ladder</h3><p>Learner (Days 1–12) → Maker (13–24) → Builder (25–36) → Founder (37–45).</p></div>
+  </div>
+  <div class="cta" style="margin-top:26px"><a class="btn p demoLink" href="#" target="_blank" rel="noopener">Book a Free Demo Class</a><a class="btn o keep" href="#students">Student Register</a></div>
+</div></section>
+
+<section id="schools" style="background:#080d26"><div class="wrap sch">
+  <div>
+    <div class="eyebrow">Schools Register</div>
+    <h2>Bring MGS to your school</h2>
+    <p class="sub">Register your school and we will contact you on WhatsApp/phone with the course plan, teacher support and partnership details.</p>
+    <ul class="t">
+      <li>Complete 45-day teacher and student activity guide</li>
+      <li>Weekly quizzes, final test and certificates</li>
+      <li>CBSE alignment map to show principals</li>
+      <li>Teachers toolkit: tracker, consent form, offline plan</li>
+      <li>Telugu-friendly guidance for teachers</li>
+    </ul>
+  </div>
+  <form id="sf">
+    <label>School name<input id="s1" required placeholder="Enter school name"></label>
+    <label>Contact person<input id="s2" required placeholder="Principal / coordinator name"></label>
+    <label>Phone / WhatsApp<input id="s3" required inputmode="tel" placeholder="10-digit mobile number"></label>
+    <label>Town / city<input id="s4" required placeholder="Your town"></label>
+    <label>Number of students<input id="s6" type="number" min="1" max="19999" required placeholder="e.g. 120"></label>
+    <label>Course<select id="s5"><option value="MGS FUTURE AI GENIUS 2030 KIDS EDITION 1 · Class 6th to 12th">MGS FUTURE AI GENIUS · 2030 KIDS EDITION 1 (Class 6th to 12th)</option></select></label>
+    <button class="btn p" type="submit">Register My School</button>
+    <div id="sm" class="m" style="color:#9aa7d6"></div>
+  </form>
+</div></section>
+<section id="students"><div class="wrap sch">
+  <div>
+    <div class="eyebrow">Student Register</div>
+    <h2>Join MGS FUTURE AI GENIUS</h2>
+    <p class="sub">Students from <span class="cls">Class 6th to 12th</span> can register for the 45-Day Digital Future Course · 2030 KIDS EDITION 1. Fill the form and send it on WhatsApp. Our team will contact you.</p>
+    <ul class="t">
+      <li>45 days · 6+ real-time projects (free) · one single book</li>
+      <li>Computer, coding, AI, business and a live project pitch</li>
+      <li>Weekly quizzes and a graduation certificate</li>
+      <li>Parent consent first. We never ask for passwords or OTPs.</li>
+    </ul>
+  </div>
+  <form id="stf">
+    <label>Student name<input id="t1" required placeholder="Full name"></label>
+    <label>Class<select id="t2"><option>6th</option><option>7th</option><option>8th</option><option>9th</option><option>10th</option><option>11th</option><option>12th</option></select></label>
+    <label>Parent / guardian name<input id="t3" required placeholder="Parent name"></label>
+    <label>Parent WhatsApp number<input id="t4" required inputmode="tel" placeholder="10-digit mobile number"></label>
+    <label>School name<input id="t5" required placeholder="Student's school"></label>
+    <label>Town / city<input id="t6" required placeholder="Your town"></label>
+    <label>Course<select id="t7"><option value="MGS FUTURE AI GENIUS 2030 KIDS EDITION 1 · Class 6th to 12th">MGS FUTURE AI GENIUS · 2030 KIDS EDITION 1</option></select></label>
+    <label class="chk"><input id="t8" type="checkbox" required> I am the parent/guardian, or I have my parent's permission to register.</label>
+    <button class="btn p" type="submit">Register Student</button>
+    <div id="tm" class="m" style="color:#9aa7d6"></div>
+  </form>
+</div></section>
+
+<section id="cert"><div class="wrap">
+  <div class="eyebrow">Registered &amp; Trusted</div>
+  <h2>A legally registered company since 2016</h2>
+  <p class="sub">MGS Kids International AI &amp; Coding Academy is run by a company incorporated under the Companies Act, 2013 and registered with the Ministry of Corporate Affairs, Government of India. Parents and schools can learn with confidence.</p>
+  <div class="cw">
+    <div class="c"><img src="certificate.jpg" id="certImg" alt="Certificate of Incorporation, MGS Business Auxiliary Private Limited, Government of India" loading="lazy"><p class="m" style="margin-top:8px;text-align:center;font-size:.8rem;color:var(--mut)">Tap the certificate to view it full size</p></div>
+    <div>
+      <div class="fact"><span>Company</span><b>MGS Business Auxiliary Private Limited</b></div>
+      <div class="fact"><span>Incorporated on</span><b>10 March 2016</b></div>
+      <div class="fact"><span>CIN</span><b>U74900TG2016PTC103768</b></div>
+      <div class="fact"><span>Issued by</span><b>Registrar of Companies, Hyderabad</b></div>
+      <div class="fact"><span>Authority</span><b>Ministry of Corporate Affairs, Govt. of India</b></div>
+      <div class="chips"><span class="chip">🏛️ Government registered</span><span class="chip">🛡️ Safe &amp; transparent</span><span class="chip">🎓 Trusted by schools</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="partners"><div class="wrap">
+  <div class="eyebrow">Our Partners</div><h2>Schools learning with MGS</h2>
+  <p class="sub">Every school that registers appears here automatically.</p>
+  <div class="stats" style="grid-template-columns:repeat(2,1fr)"><div class="stat"><b id="pS">20+</b><span>Schools registered</span></div><div class="stat"><b id="pT">320+</b><span>Students</span></div></div>
+  <div class="grid g3" id="pList"></div>
+</div></section>
+</main>
+
+<footer><div class="wrap fl">
+  <div><b>MGS Kids International AI &amp; Coding Academy</b><br>45-Day Digital Future Course · MGS FUTURE AI GENIUS 2030 KIDS EDITION 1<br>Learn • Build • Create • Pitch<br>MGS Business Auxiliary Pvt. Ltd. · CIN U74900TG2016PTC103768</div>
+  <div>▶ <a href="https://www.youtube.com/@MGSKidsInternationalAI-143-g2s" target="_blank" rel="noopener">YouTube</a> · 📸 <a href="https://www.instagram.com/mgskidsinternationalai/" target="_blank" rel="noopener">Instagram</a><br>📞 9491304247</div>
+</div></footer>
+
+<button id="snd" title="Sound on/off" aria-label="Sound on/off">🔊</button>
+<div id="lb"><img src="certificate.jpg" alt="Certificate of Incorporation"></div>
+<a class="wa" id="wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+
+<script>
+const NUM="919491304247";
+const wa=t=>"https://wa.me/"+NUM+"?text="+encodeURIComponent(t);
+// Replace this with your Free Demo Google Form link if you want the button to open the form instead
+const DEMO_URL="";
+const demo=DEMO_URL||wa("Hello MGS Kids International AI & Coding Academy, I want to book a FREE DEMO CLASS.");
+["demoNav","demoHero","demoRobo"].forEach(id=>document.getElementById(id).href=demo);
+document.querySelectorAll(".demoLink").forEach(a=>a.href=demo);
+document.getElementById("wa").href=wa("Hello MGS Kids International AI & Coding Academy, I want more details about the course.");
+const card=document.getElementById("card");
+card.addEventListener("mousemove",e=>{const r=card.getBoundingClientRect();card.style.setProperty("--x",(e.clientX-r.left)+"px");card.style.setProperty("--y",(e.clientY-r.top)+"px")});
+</script>
+<script type="module">
+try{
+  const {Application}=await import("https://unpkg.com/@splinetool/runtime@1.9.28/build/runtime.js");
+  const app=new Application(document.getElementById("spline"));
+  await app.load("https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode");
+}catch(err){console.warn("3D robot could not load",err)}
+</script>
+<script type="module">
+import {configured,db,NUM,FS,fmt} from "./mgs.js";
+const $=i=>document.getElementById(i);
+// Schools and students already with MGS (added to the live online registrations)
+const BASE_SCHOOLS=20,BASE_STUDENTS=320;
+if(configured){
+ FS.onSnapshot(FS.query(FS.collection(db,"public"),FS.orderBy("createdAt","desc")),snap=>{
+  const l=$("pList");l.textContent="";let t=0;
+  snap.forEach(d=>{const x=d.data({serverTimestamps:"estimate"});t+=x.students;
+   const c=document.createElement("div");c.className="c";const h=document.createElement("h3");h.textContent="🏫 "+x.name;
+   const p=document.createElement("p");p.textContent="👩‍🎓 "+x.students+" students · 🕒 "+fmt(x.createdAt);c.append(h,p);l.append(c)});
+  $("pS").textContent=(BASE_SCHOOLS+snap.size)+"+";$("pT").textContent=(BASE_STUDENTS+t)+"+";
+  if(!snap.size)l.innerHTML='<p class="sub">Register your school to be listed here.</p>'});
+}
+$("sf").addEventListener("submit",async e=>{
+ e.preventDefault();const v=i=>$(i).value.trim(),m=$("sm");
+ if(!configured){m.textContent="Registration is being set up. Please WhatsApp us on 9491304247.";return}
+ const btn=e.submitter;btn.disabled=true;m.textContent="Registering...";
+ try{
+  const id=FS.doc(FS.collection(db,"schools")).id,b=FS.writeBatch(db),n=parseInt(v("s6"),10);
+  b.set(FS.doc(db,"schools",id),{name:v("s1"),contact:v("s2"),phone:v("s3"),town:v("s4"),classes:v("s5"),students:n,status:"pending",createdAt:FS.serverTimestamp()});
+  b.set(FS.doc(db,"public",id),{name:v("s1"),students:n,createdAt:FS.serverTimestamp()});
+  await b.commit();
+  const msg="SCHOOL REGISTRATION\nSchool: "+v("s1")+"\nContact: "+v("s2")+"\nPhone: "+v("s3")+"\nTown: "+v("s4")+"\nStudents: "+n+"\nCourse: "+v("s5")+"\nPlease send my Login ID and Password.";
+  m.textContent="✅ Registered! Tap the button to send us your details on WhatsApp. We will send your Login ID and Password there. ";
+  const a=document.createElement("a");a.className="btn p";a.target="_blank";a.rel="noopener";a.textContent="Send on WhatsApp";a.href="https://wa.me/"+NUM+"?text="+encodeURIComponent(msg);m.append(document.createElement("br"),a);
+  e.target.reset();
+ }catch(err){m.textContent="Could not register. Please try again or WhatsApp us."}
+ btn.disabled=false;
+});
+</script>
+<script>
+(()=>{
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+let ctx,on=true;try{on=localStorage.getItem("mgsSound")!=="off"}catch(e){}
+const snd=document.getElementById("snd");snd.textContent=on?"🔊":"🔇";
+snd.onclick=()=>{on=!on;snd.textContent=on?"🔊":"🔇";try{localStorage.setItem("mgsSound",on?"on":"off")}catch(e){}if(on)beep("")};
+function tone(f,t,d,type,v){const o=ctx.createOscillator(),g=ctx.createGain();o.type=type;o.frequency.setValueAtTime(f,t);o.frequency.exponentialRampToValueAtTime(f*1.6,t+d);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g);g.connect(ctx.destination);o.start(t);o.stop(t+d)}
+function beep(kind){if(!on)return;try{ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();if(ctx.state==="suspended")ctx.resume();const t=ctx.currentTime;
+ if(kind==="demo")[523,659,784,1047].forEach((f,i)=>tone(f,t+i*.08,.18,"triangle",.12));else{tone(600,t,.09,"square",.07);tone(900,t+.05,.08,"sine",.06)}}catch(e){}}
+document.addEventListener("click",e=>{const b=e.target.closest("a.btn,button,.chip");if(!b||b.id==="snd")return;beep((b.id||"").startsWith("demo")||b.classList.contains("demoLink")?"demo":"")},true);
+// 3D tilt (works for cards added later too)
+let cur=null;
+if(!reduce&&matchMedia("(hover:hover)").matches){
+ document.addEventListener("pointermove",e=>{const el=e.target.closest&&e.target.closest(".c,.stat");
+  if(cur&&cur!==el)cur.style.transform="";cur=el;if(!el)return;
+  const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+  el.style.transform="perspective(800px) rotateX("+(-y*14)+"deg) rotateY("+(x*14)+"deg) translateZ(10px)"});
+ document.addEventListener("pointerleave",()=>{if(cur)cur.style.transform=""});
+}
+// 3D scroll reveal
+if(!reduce&&"IntersectionObserver" in window){
+ const io=new IntersectionObserver(es=>es.forEach(x=>{if(!x.isIntersecting)return;const el=x.target;el.classList.add("in");io.unobserve(el);
+  setTimeout(()=>{el.classList.remove("rv","in");el.style.transitionDelay=""},1100)}),{threshold:.12});
+ document.querySelectorAll(".c,.stat,.chip,.bar,section h2,section .sub,form").forEach(el=>{
+  el.classList.add("rv");el.style.transitionDelay=Math.min(Array.from(el.parentNode.children).indexOf(el),6)*90+"ms";io.observe(el)});
+}
+})();
+</script>
+<script>
+(()=>{const lb=document.getElementById("lb"),i=document.getElementById("certImg");if(i){i.onclick=()=>lb.classList.add("on");lb.onclick=()=>lb.classList.remove("on");document.addEventListener("keydown",e=>e.key==="Escape"&&lb.classList.remove("on"))}})();
+</script>
+<script>
+document.getElementById("stf").addEventListener("submit",e=>{
+ e.preventDefault();const v=i=>document.getElementById(i).value.trim();
+ const msg="STUDENT REGISTRATION\nStudent: "+v("t1")+"\nClass: "+v("t2")+"\nParent: "+v("t3")+"\nParent WhatsApp: "+v("t4")+"\nSchool: "+v("t5")+"\nTown: "+v("t6")+"\nCourse: "+v("t7")+"\nParent permission: Yes\nPlease share the next steps.";
+ const url="https://wa.me/919491304247?text="+encodeURIComponent(msg);
+ window.open(url,"_blank");
+ const m=document.getElementById("tm");m.textContent="✅ Thank you! If WhatsApp did not open, tap here: ";
+ const a=document.createElement("a");a.href=url;a.target="_blank";a.rel="noopener";a.textContent="Send on WhatsApp";a.style.color="var(--b)";m.append(a);
+ e.target.reset();
+});
+</script>
+</body>
+</html>
