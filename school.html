@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>School Login · MGS Kids</title><link rel="stylesheet" href="portal.css"></head><body><div class="w">
+<div class="top"><h1>🏫 MGS School Portal</h1><a href="index.html">← Back to website</a></div>
+<div id="lg" class="c" style="max-width:420px"><h3>School Login</h3><p class="m">Use the Login ID and Password sent to you on WhatsApp.</p>
+<form id="lf"><input id="u" placeholder="Login ID (e.g. MGS1234)" required autocomplete="username"><input id="p" type="password" placeholder="Password" required autocomplete="current-password"><button>Login</button></form><p id="er" class="m" style="color:#ff8aa5"></p></div>
+<div id="pt" hidden>
+<div class="c top"><div><h2 id="sn"></h2><p class="m" id="si"></p></div><div><b id="ct" style="font-size:2rem"></b> <span class="m">students entered</span><br><button id="lo" class="d" style="margin-top:8px">Logout</button></div></div>
+<div class="c"><h3>Add Student</h3><p class="m">Enter only name and class. Take parent consent before adding students.</p>
+<form id="af" style="display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:10px;align-items:end"><label class="m">Student name<input id="n" required></label><label class="m">Class<select id="k"><option>6th</option><option>7th</option><option>8th</option><option>9th</option><option>10th</option><option>11th</option><option>12th</option></select></label><label class="m">Section / Roll<input id="r"></label><button>Add</button></form></div>
+<div class="c"><h3>Students</h3><div id="ls"></div></div></div></div>
+<script type="module">
+import {auth,db,mail,AU,FS,configured,fmt} from "./mgs.js";
+const $=i=>document.getElementById(i);let sid=null,unsub=null;
+if(!configured)$("er").textContent="Portal is being set up. Please contact MGS on WhatsApp.";
+$("lf").onsubmit=async e=>{e.preventDefault();$("er").textContent="";
+ try{await AU.signInWithEmailAndPassword(auth,mail($("u").value),$("p").value)}catch{$("er").textContent="Wrong Login ID or Password."}};
+$("lo").onclick=()=>AU.signOut(auth);
+AU.onAuthStateChanged(auth,async u=>{
+ if(unsub){unsub();unsub=null}
+ $("lg").hidden=!!u;$("pt").hidden=!u;if(!u)return;
+ const q=await FS.getDocs(FS.query(FS.collection(db,"schools"),FS.where("uid","==",u.uid)));
+ if(q.empty){$("lg").hidden=false;$("pt").hidden=true;$("er").textContent="No school linked to this login.";return}
+ const s=q.docs[0];sid=s.id;$("sn").textContent=s.data().name;$("si").textContent="Login ID: "+s.data().loginId;
+ unsub=FS.onSnapshot(FS.query(FS.collection(db,"schools",sid,"students"),FS.orderBy("createdAt","desc")),snap=>{
+  $("ct").textContent=snap.size;const l=$("ls");l.textContent="";
+  snap.forEach(d=>{const x=d.data({serverTimestamps:"estimate"});const r=document.createElement("div");r.className="row";
+   const a=document.createElement("b");a.textContent=x.name;const b=document.createElement("span");b.textContent="Class "+x.class+(x.roll?" · "+x.roll:"");
+   const c=document.createElement("span");c.className="m";c.textContent=fmt(x.createdAt);const k=document.createElement("button");k.className="d";k.textContent="Delete";
+   k.onclick=()=>confirm("Delete "+x.name+"?")&&FS.deleteDoc(d.ref);r.append(a,b,c,k);l.append(r)});
+  if(!snap.size)l.innerHTML='<p class="m">No students yet.</p>'});
+});
+$("af").onsubmit=async e=>{e.preventDefault();
+ await FS.addDoc(FS.collection(db,"schools",sid,"students"),{name:$("n").value.trim(),class:$("k").value,roll:$("r").value.trim(),createdAt:FS.serverTimestamp()});
+ $("n").value="";$("r").value="";$("n").focus()};
+</script></body></html>

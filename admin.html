@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MGS Admin</title><link rel="stylesheet" href="portal.css"></head><body><div class="w">
+<div class="top"><h1>🛠️ MGS Admin · School Registrations</h1><a href="index.html">← Website</a></div>
+<div id="lg" class="c" style="max-width:420px"><h3>Admin Login</h3><form id="lf"><input id="e" type="email" placeholder="Admin email" required><input id="p" type="password" placeholder="Password" required><button>Login</button></form><p id="er" class="m" style="color:#ff8aa5"></p></div>
+<div id="pt" hidden><div class="c top"><div><b id="n1" style="font-size:2rem">0</b> <span class="m">schools</span> &nbsp; <b id="n2" style="font-size:2rem">0</b> <span class="m">students (registered)</span></div><button id="lo" class="d">Logout</button></div>
+<div id="ls"></div></div></div>
+<script type="module">
+import {auth,db,mail,AU,FS,cfg,initializeApp,ADMIN_EMAIL,configured,fmt} from "./mgs.js";
+const $=i=>document.getElementById(i);
+$("lf").onsubmit=async e=>{e.preventDefault();try{await AU.signInWithEmailAndPassword(auth,$("e").value,$("p").value)}catch{$("er").textContent="Wrong email or password."}};
+$("lo").onclick=()=>AU.signOut(auth);
+const pw=()=>{const c="abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789";let s="";const a=crypto.getRandomValues(new Uint32Array(10));a.forEach(v=>s+=c[v%c.length]);return s};
+async function makeLogin(id,x,box){
+ const sec=AU.getAuth(initializeApp(cfg,"sec"+Date.now()));const pass=pw();let lid,uid;
+ for(let i=0;i<5;i++){lid="MGS"+(1000+crypto.getRandomValues(new Uint32Array(1))[0]%9000);
+  try{uid=(await AU.createUserWithEmailAndPassword(sec,mail(lid),pass)).user.uid;break}catch(e){if(e.code!=="auth/email-already-in-use")throw e}}
+ await AU.signOut(sec);if(!uid)throw new Error("retry");
+ await FS.updateDoc(FS.doc(db,"schools",id),{uid,loginId:lid,status:"active"});
+ const url=location.origin+location.pathname.replace("admin.html","school.html");
+ const msg="Welcome to MGS Kids International AI & Coding Academy!\nSchool: "+x.name+"\nLogin ID: "+lid+"\nPassword: "+pass+"\nLogin here: "+url+"\nEnter your students' names and classes after login.";
+ box.className="cred";box.textContent="Login ID: "+lid+"   Password: "+pass+"  (shown only once) ";
+ const a=document.createElement("a");a.className="b";a.target="_blank";a.textContent="Send on WhatsApp";a.href="https://wa.me/91"+x.phone.replace(/\D/g,"").slice(-10)+"?text="+encodeURIComponent(msg);box.append(document.createElement("br"),a);
+}
+let unsub=null;
+AU.onAuthStateChanged(auth,u=>{
+ if(unsub){unsub();unsub=null}
+ const ok=u&&u.email===ADMIN_EMAIL;$("lg").hidden=!!ok;$("pt").hidden=!ok;
+ if(u&&!ok){AU.signOut(auth);$("er").textContent="This account is not the admin.";return}
+ if(!ok)return;
+ unsub=FS.onSnapshot(FS.query(FS.collection(db,"schools"),FS.orderBy("createdAt","desc")),snap=>{
+  const l=$("ls");l.textContent="";let t=0;$("n1").textContent=snap.size;
+  snap.forEach(d=>{const x=d.data({serverTimestamps:"estimate"});t+=x.students;
+   const c=document.createElement("div");c.className="c";
+   const h=document.createElement("h3");h.textContent="🏫 "+x.name+" ";const s=document.createElement("span");s.className="st"+(x.status==="active"?" on":"");s.textContent=x.status==="active"?"Login: "+x.loginId:"Pending";h.append(s);
+   const p=document.createElement("p");p.className="m";p.textContent=x.contact+" · "+x.phone+" · "+x.town+" · "+x.students+" students · "+x.classes+" · "+fmt(x.createdAt);
+   const box=document.createElement("div");const bt=document.createElement("div");bt.style.cssText="display:flex;gap:10px;margin-top:10px";
+   if(x.status!=="active"){const g=document.createElement("button");g.textContent="Create Login ID & Password";g.onclick=async()=>{g.disabled=true;try{await makeLogin(d.id,x,box)}catch(e){g.disabled=false;alert("Failed: "+e.message)}};bt.append(g)}
+   const k=document.createElement("button");k.className="d";k.textContent="Remove";k.onclick=async()=>{if(!confirm("Remove "+x.name+" from the website?"))return;const b=FS.writeBatch(db);b.delete(d.ref);b.delete(FS.doc(db,"public",d.id));await b.commit()};bt.append(k);
+   c.append(h,p,bt,box);l.append(c)});
+  $("n2").textContent=t;if(!snap.size)l.innerHTML='<p class="m">No registrations yet.</p>'});
+});
+</script></body></html>
